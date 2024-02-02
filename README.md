@@ -1,5 +1,5 @@
 # RaspberryPi-FastAPI-GPIO
-Python FastAPI Rest API Example to control GPIOs
+Python FastAPI used to control GPIOs
 
 ```
 python -m venv env
