@@ -1,0 +1,67 @@
+<form method="POST" enctype="multipart/form-data">
+        <select class="ms-1 p-2 mb-4 b-4 border border-primary rounded form=select form-select-inline" name="gpio" id="gpio">
+          <option selected>Select GPIO</option>
+                    {% for gpio in gpios if gpio.gpio %}
+                        <option value="{{ gpio.gpio }}">{{ gpio.gpio }}</>
+                    {% endfor %}
+        </select>
+
+        <label>Used for</label>
+        <input class="p-2 border border-primary rounded mb-6 form-text-inline"
+            type="text" id="usedfor" name="usedfor" placeholder="Using this GPIO?..." size="18">
+
+        <div class="form-check form-switch form-check-inline">
+            <input type="hidden" name="type" value="input">
+            <input class="form-check-input" type="checkbox" role="switch" id="type" name="type" value="output">
+            <label class="form-check-label" for="type">Input/Output</label>
+        </div>
+
+        <script type="text/javascript">
+          document.getElementById('type').addEventListener('change', function(){
+            var status = this.checked ? 'ON' : 'OFF';
+            console.log('Toggle Switch is ' + status);
+            console.log('Switch state: ', this.checked ? 'ON' : 'OFF');
+            function ExecPythonCommand(pythonCommand){
+            var request = new XMLHttpRequest()
+            request.open("POST", "/" + pythonCommand, true)
+            request.send()
+            }
+            if (status == 'ON') ExecPythonCommand('GPIO_Type_Output');
+            else if
+                (status == 'OFF') ExecPythonCommand('GPIO_Type_Input');
+          })
+        </script>
+
+        <div class="form-check form-switch form-check-inline">
+            <input type="hidden" name="state" value="low">
+            <input class="form-check-input" type="checkbox" role="switch" id="state" name="state" value="high">
+            <label class="form-check-label" for="type">Low/High</label>
+        </div>
+
+        <script type="text/javascript">
+          document.getElementById('state').addEventListener('change', function(){
+            var status = this.checked ? 'ON' : 'OFF';
+            console.log('Toggle Switch is ' + status);
+            console.log('Switch state: ', this.checked ? 'ON' : 'OFF');
+            function ExecPythonCommand(pythonCommand){
+            var request = new XMLHttpRequest()
+            request.open("POST", "/" + pythonCommand, true)
+            request.send()
+            }
+            if (status == 'ON') ExecPythonCommand('GPIO_State_High');
+            else if
+                (status == 'OFF') ExecPythonCommand('GPIO_State_Low');
+          })
+        </script>
+
+<br>
+        <button class="btn btn-primary rounded"
+                hx-post="/idForm/{{ gpio }}"
+                hx-target="#gpios">Find</button>
+        <button class="btn btn-primary rounded"
+                hx-post="/"
+                hx-target="#gpios">Update</button>
+        <button class="btn btn-primary rounded"
+                hx-get="/"
+                hx-target="#gpios">Refresh GPIOs</button>
+</form>

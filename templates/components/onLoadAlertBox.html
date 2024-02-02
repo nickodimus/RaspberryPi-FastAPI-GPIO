@@ -1,0 +1,10 @@
+<div id="message"></div>
+<script type="text/javascript">
+  let message = document.getElementById("message");
+  function welcomeFunction() {
+      const apiUrl = 'http://127.0.0.1:8000';
+        fetch(apiUrl)
+     alert( "Your are about to access the GPIO Interface on Tremelor!  Are you read?" );
+     message.innerHTML = "Login Function will be executed successfully on page load."
+  }
+</script>

@@ -1,0 +1,24 @@
+<table class="tw-min-w-[100%] mb-4" style="color: antiquewhite;">
+    <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 tw-bg-gray-400 tw-text-center tw-text-lg">
+        <tr>
+            <th class="border">PIN</th>
+            <th class="border">GPIO</th>
+            <th class="border">Name</th>
+            <th class="border">Type</th>
+            <th class="border">State</th>
+            <th class="border">Used For</th>
+            <th class="border">Last Changed</th>
+        </tr>
+    </thead>
+    <!--
+    <tbody class="tw-font-medium odd:tw-bg-gray-900 even:tw-bg-gray-800 dark:tw-border-gray-700 text-center" id="gpios">
+    -->
+    <tbody class="tw-font-medium dark:tw-border-gray-700 text-center" id="gpios">
+        {% include 'components/gpio.html' %}
+    </tbody>
+</table>
+
+<!---
+background-image: url('{{ table_pic }}');
+background-size: cover;
+-->

@@ -1,0 +1,25 @@
+{% for gpio in gpios %}
+    <tr>
+    <td class="border">
+        {{ gpio.pin }}
+    </td>
+    <td class="border">
+        {{ gpio.gpio }}
+    </td>
+    <td class="border">
+        {{ gpio.name }}
+    </td>
+    <td class="border">
+        {{ gpio.type }}
+    </td>
+    <td class="border">
+        {{ gpio.state }}
+    </td>
+    <td class="border">
+        {{ gpio.usedfor }}
+    </td>
+    <td class="border">
+        {{ gpio.changed }}
+    </td>
+    </tr>
+{% endfor %}
