@@ -1,7 +1,9 @@
-# raspberrypi-fastapi-gpio
+# RaspberryPi-FastAPI-GPIO
 Python FastAPI Rest API Example to control GPIOs
 
 ```
+python -m venv env
+source ./env/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
