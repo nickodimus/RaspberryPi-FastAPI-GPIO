@@ -1,0 +1,15 @@
+# from https://ashfaque.medium.com/deploy-fastapi-app-on-debian-with-nginx-uvicorn-and-systemd-2d4b9b12d724
+
+[Unit]
+Description=RaspberryPi FastAPI GPIO Application
+After=network.target
+
+[Service]
+User=sky
+Group=sky
+WorkingDirectory=/home/sky/RaspberryPi-FastAPI-GPIO/
+ExecStart=/home/sky/RaspberryPi-FastAPI-GPIO/env/bin/uvicorn main:app --host 127.0.0.1 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

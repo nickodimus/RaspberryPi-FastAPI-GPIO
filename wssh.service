@@ -1,0 +1,15 @@
+# from https://www.digitalocean.com/community/tutorials/how-to-connect-to-a-terminal-from-your-browser-using-python-webssh
+
+[Unit]
+Description=wssh loader for RaspberryPi FastAPI GPIO Application
+After=network.target
+
+[Service]
+User=sky
+Group=sky
+WorkingDirectory=/home/sky/RaspberryPi-FastAPI-GPIO/
+ExecStart=/home/sky/RaspberryPi-FastAPI-GPIO/env/bin/wssh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

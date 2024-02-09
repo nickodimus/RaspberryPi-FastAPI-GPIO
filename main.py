@@ -54,11 +54,12 @@ async def set_gpio():
     """
     Asynchronous function to set up GPIO on startup and start wssh on 10.10.0.32.
     """
+    '''
     shellCommand = str(f"wssh --address""=""{ipAddress}")
     os.system(shellCommand)
     with Session(sqlite_engine_gpio) as session:
         gpios = session.exec(select(GPIO)).all()
-
+'''
 
 @app.get("/home", response_class=HTMLResponse)
 def loadHome(request: Request):
