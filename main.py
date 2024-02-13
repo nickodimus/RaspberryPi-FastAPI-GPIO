@@ -38,7 +38,7 @@ table_pic = "/static/images/happy.png"
 
 '''
 Set the startup stuff into a login page endpoint so 
-when you login it will redirect you to the home page and load al the gpios
+when you login it will redirect you to the home page and load all the gpios
 
 ---> OR use the htmx code here which is also documented in /templates/gpio.html:
 
